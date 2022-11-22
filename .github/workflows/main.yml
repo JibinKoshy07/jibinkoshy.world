@@ -13,6 +13,6 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.KEY }}
         with:
-          source: "dest/*"
-          target: "/var/www/github-test/public_html"
+          source: "./*"
+          target: "/home/xminds/github-action-test"
           strip_components: 1
