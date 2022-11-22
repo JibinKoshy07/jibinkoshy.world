@@ -11,7 +11,6 @@ jobs:
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.KEY }}
         with:
           source: "./*"
           target: "/home/xminds/github-action-test"
