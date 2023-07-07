@@ -27,3 +27,10 @@ pipeline {
         }        
     }
 }
+
+// how to run the pipeline
+// 1. create a new pipeline job in jenkins
+// 2. select pipeline script from SCM
+// 3. select git
+// 4. enter the repo url
+// 5. enter the credentials
