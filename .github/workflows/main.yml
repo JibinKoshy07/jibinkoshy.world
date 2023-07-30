@@ -24,4 +24,4 @@ jobs:
         run: docker build -t jibu07/jibinkoshy.world:latest .
 
       - name: Push Docker Image
-        run: docker push 
+        run: docker push jibu07/jibinkoshy.world:latest
