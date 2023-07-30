@@ -1,5 +1,4 @@
-
-name: Docker Build
+name: Docker Build and Publish
 
 on:
   push:
@@ -21,7 +20,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: docker build -t jibu07/jibinkoshy.world:latest .
+        run: |
+          IMAGE_TAG=$(git log -1 --pretty=format:"%h")
+          docker build -t jibu07/jibinkoshy.world:$IMAGE_TAG .
+        env:
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
 
       - name: Push Docker Image
-        run: docker push jibu07/jibinkoshy.world:latest
+        run: docker push jibu07/jibinkoshy.world:$IMAGE_TAG
+        env:
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
