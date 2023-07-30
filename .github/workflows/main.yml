@@ -21,3 +21,7 @@ jobs:
 
           # Replace "your-dockerhub-username" and "your-image-name" with appropriate values
           tags: jibu07/jibinkoshy.world:latest
+
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
