@@ -1,18 +1,23 @@
-name: website deployment
-on: [push]
-jobs:  
-  deploy:    
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - name: deploy website to example.com
-        uses: appleboy/scp-action@master
-        env:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.KEY }}
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v2
         with:
-          source: "./*"
-          target: "/home/xminds/github-action-test"
-          strip_components: 1
+          context: . # The path to the directory containing the Dockerfile (current directory)
+          push: false # Set to "true" if you want to push the image to a container registry
+
+          # Replace "your-dockerhub-username" and "your-image-name" with appropriate values
+          tags: jibu07/jibinkoshy.world:latest
