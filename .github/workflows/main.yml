@@ -22,11 +22,15 @@ jobs:
       - name: Build Docker Image
         run: docker build -t jibu07/jibinkoshy.world:latest .
 
-      - name: Tag Docker Image with Commit SHA
-        run: docker tag jibu07/jibinkoshy.world:latest jibu07/jibinkoshy.world:${{ github.sha }}
+      - name: Get Current Date and Time
+        id: datetime
+        run: echo "::set-output name=date::$(date +'%Y%m%d-%H%M%S')"
+
+      - name: Tag Docker Image with Current Date and Time
+        run: docker tag jibu07/jibinkoshy.world:latest jibu07/jibinkoshy.world:${{ steps.datetime.outputs.date }}
 
       - name: Push Docker Image (Latest)
         run: docker push jibu07/jibinkoshy.world:latest
 
-      - name: Push Docker Image (Commit SHA)
-        run: docker push jibu07/jibinkoshy.world:${{ github.sha }}
+      - name: Push Docker Image (Current Date and Time)
+        run: docker push jibu07/jibinkoshy.world:${{ steps.datetime.outputs.date }}
