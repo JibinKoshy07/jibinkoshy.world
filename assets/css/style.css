@@ -19,8 +19,9 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/1668690488486.png") top right no-repeat;
-  background-size: cover;
+  background: #040404 url("../img/devops-guy.svg") no-repeat; /* Remove 'top left' */
+  /* background-size: cover; */
+  background-position:  142% 0; /* Add this line to set the position to top right */
   left: 0;
   right: 0;
   top: 0;
