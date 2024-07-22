@@ -2,4 +2,4 @@
 
 
    ```
-      git clone https://gitlab.com/datazoom/reactapp-jw-player-collector.git
+      git clone git@github.com:JibinKoshy07/jibinkoshy.world.git
