@@ -5,7 +5,7 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 # Expose the port for web traffic
-EXPOSE 80
+EXPOSE 8081
 
 # Start the nginx server
 CMD ["nginx", "-g", "daemon off;"]
